@@ -3,11 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{D0F0DE19-270F-4B79-BB81-23D71B0ED5B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "Task2\Task2.csproj", "{885BC6B2-0790-46C3-8CB9-287F3313DE70}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E1393BF-323E-4135-8FE1-4EE9BCE4ADB8}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0F0DE19-270F-4B79-BB81-23D71B0ED5B8}.Debug|x86.ActiveCfg = Debug|x86
+		{D0F0DE19-270F-4B79-BB81-23D71B0ED5B8}.Debug|x86.Build.0 = Debug|x86
+		{D0F0DE19-270F-4B79-BB81-23D71B0ED5B8}.Release|x86.ActiveCfg = Release|x86
+		{D0F0DE19-270F-4B79-BB81-23D71B0ED5B8}.Release|x86.Build.0 = Release|x86
+		{885BC6B2-0790-46C3-8CB9-287F3313DE70}.Debug|x86.ActiveCfg = Debug|x86
+		{885BC6B2-0790-46C3-8CB9-287F3313DE70}.Debug|x86.Build.0 = Debug|x86
+		{885BC6B2-0790-46C3-8CB9-287F3313DE70}.Release|x86.ActiveCfg = Release|x86
+		{885BC6B2-0790-46C3-8CB9-287F3313DE70}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
