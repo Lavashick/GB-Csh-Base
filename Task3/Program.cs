@@ -9,28 +9,19 @@ namespace Task3
         int second;
 
         // Проверяем, ясляется ли число целым
-        public bool isInt(double value)
+        bool isInt(double value)
         {
-            if (value % 1 == 0)
-                return true;
-            else
-                return false;
+            return Convert.ToDouble(Convert.ToInt32(value)) == value;
         }
 
         // Функция проверяет, можно ли сократить дробь, и, если да, то выводит ее сокращенный вид
-        public void Shortening(Fraction a)
+        public int Shortening()
         {
-            Convert.ToDouble(a.first);
-            Convert.ToDouble(a.second);
-            double shortValue = a.first / a.second + a.first % a.second;
-            Console.WriteLine("ПОЧЕМУ СУКА ТУТ БЛЯТЬ ЦЕЛОЕ НАХУЙ ЧИСЛО    " + shortValue);
+            double shortValue = Convert.ToDouble(first) / second;
             if (isInt(shortValue))
-            {
-                Convert.ToInt32(shortValue);
-                Console.WriteLine("Сокращенная дробь: " + shortValue);
-            }
+                return Convert.ToInt32(shortValue);
             else
-                return;
+                throw new Exception();
         }
 
         // Вывод дроби
@@ -44,6 +35,24 @@ namespace Task3
         {
             this.first = first;
             this.second = second;
+        }
+
+        public static Fraction Sum(Fraction a, Fraction b)
+        {
+            int firstNew;
+            int secondNew;
+            if (b.second != a.second) // Если числители дробей не равны, то:
+            {
+                secondNew = a.second * b.second;
+                firstNew = a.first * b.second + b.first * a.second;
+            }
+            else
+            {
+                firstNew = a.first + b.first;
+                secondNew = b.second;
+            }
+            Fraction result = new Fraction(firstNew, secondNew);
+            return result;
         }
 
 
@@ -63,8 +72,7 @@ namespace Task3
                 secondNew = this.second;
             }
             Fraction result = new Fraction(firstNew, secondNew);
-            Shortening(result);
-                  return result;
+            return result;
         }
 
         // Вычитание дробей
@@ -83,7 +91,6 @@ namespace Task3
                 secondNew = this.second;
             }
             Fraction result = new Fraction(firstNew, secondNew);
-            Shortening(result);
             return result;
         }
 
@@ -95,7 +102,6 @@ namespace Task3
             firstNew = a.first * this.first;
             secondNew = a.second * this.second;
             Fraction result = new Fraction(firstNew, secondNew);
-            Shortening(result);
             return result;
         }
 
@@ -107,7 +113,6 @@ namespace Task3
             secondNew = a.first * this.second;
             firstNew = a.second * this.first;
             Fraction result = new Fraction(firstNew, secondNew);
-            Shortening(result);
             return result;
         }
 
@@ -148,16 +153,45 @@ namespace Task3
             Console.WriteLine("Дробь B: {0}", b.ToString());
             Console.WriteLine();
 
+            Fraction sum = a.Sum(b);
+            Fraction sSum = Fraction.Sum(a, b);
+            Fraction minus = a.Minus(b);
+            Fraction multiply = a.Multiply(b);
+            Fraction division = a.Division(b);
 
-            Console.WriteLine("Сумма дробей a и b = {0}", a.Sum(b).ToString());
-            Console.WriteLine();
-            Console.WriteLine("Разность дробей a и b = {0}", a.Minus(b).ToString());
-            Console.WriteLine();
-            Console.WriteLine("Произведение a и b = {0}", a.Multiply(b).ToString());
-            Console.WriteLine();
-            Console.WriteLine("Частное дробей a и b = {0}", a.Division(b).ToString());
+            Console.WriteLine("Сумма дробей a и b = {0}", sum.ToString());
+            try
+            {
+                Console.WriteLine("Целая часть дроби без остатка: {0}", sum.Shortening());
+            }
+            catch { }
             Console.WriteLine();
 
+            Console.WriteLine("Разность дробей a и b = {0}", minus.ToString());
+            try
+            {
+                Console.WriteLine("Целая часть дроби без остатка:: {0}", minus.Shortening());
+            }
+            catch { }
+            Console.WriteLine();
+
+            Console.WriteLine("Произведение a и b = {0}", multiply.ToString());
+            try
+            {
+                Console.WriteLine("Целая часть дроби без остатка:: {0}", multiply.Shortening());
+            }
+            catch { }
+            Console.WriteLine();
+
+            Console.WriteLine("Частное дробей a и b = {0}", division.ToString());
+            try
+            {
+                Console.WriteLine("Целая часть дроби без остатка: {0}", division.Shortening());
+            }
+            catch { }
+            Console.WriteLine();
+
+            Console.ReadKey();
         }
     }
 }
